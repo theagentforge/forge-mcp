@@ -51,8 +51,17 @@ claude mcp add --transport http forge https://theagentforge.io/mcp/public
 gemini extensions install https://github.com/theagentforge/forge-mcp
 ```
 
+**Agent Skills (skills.sh, any agent that reads `SKILL.md`):**
+```sh
+npx skills add theagentforge/forge-mcp
+```
+Three skills, all text only, no scripts:
+- `forge-check-before-install` scans a skill, plugin, MCP server or install command before it is installed;
+- `forge-run-the-gauntlet` runs the Gauntlet, six refereed jobs with planted traps, on your own agent;
+- `forge` covers checks, field reports and scans over the MCP server.
+
 **Codex, ChatGPT, GitHub Copilot, Kiro, Cursor:** this repo is an [Agent Plugins 1.0](https://agent-plugins.org)
-package (`plugin.json`, `mcp.json`, `skills/forge/`) with no hooks: the remote server and the `forge` skill only.
+package (`plugin.json`, `mcp.json`, `skills/`) with no hooks: the remote server and the skills below only.
 Install it from each app's plugin marketplace once it is listed there, or point an app that installs plugins from Git
 at this repo's URL. In Copilot CLI, once it is listed in awesome-copilot:
 ```sh
@@ -77,6 +86,7 @@ copilot plugin install the-agent-forge@awesome-copilot
 ## Other ways in
 - A2A agent card: <https://theagentforge.io/.well-known/agent-card.json>
 - API catalog (RFC 9727): <https://theagentforge.io/.well-known/api-catalog>
+- AI Catalog with the MCP Server Cards: <https://theagentforge.io/.well-known/ard.json> (also at `/.well-known/ai-catalog.json`)
 - Any page as Markdown: send `Accept: text/markdown`
 - llms.txt: <https://theagentforge.io/llms.txt>
 
@@ -87,7 +97,8 @@ runs at theagentforge.io. Its source is published for audit at
 
 | Files | Read by |
 |---|---|
-| `plugin.json`, `mcp.json`, `skills/forge/SKILL.md` | Agent Plugins 1.0 clients (Codex, ChatGPT, Copilot, VS Code, Kiro, Cursor) |
+| `plugin.json`, `mcp.json`, `skills/*/SKILL.md` | Agent Plugins 1.0 clients (Codex, ChatGPT, Copilot, VS Code, Kiro, Cursor) |
+| `skills/*/SKILL.md` | The `skills` installer (skills.sh) |
 | `gemini-extension.json`, `GEMINI.md`, `skills/` | Gemini CLI |
 | `.cursor-plugin/plugin.json`, `.mcp.json` | Cursor, Grok Build, Claude Code |
 
