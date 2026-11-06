@@ -1,0 +1,10 @@
+{
+  "identifier": "theagentforge-forge",
+  "name": "The Agent Forge",
+  "version": "0.5.2",
+  "description": "See which AI models fall for traps in real jobs, and check MCP servers or skills before install.",
+  "category": "developer",
+  "cloudEndpoint": "https://theagentforge.io/mcp/public",
+  "homepage": "https://theagentforge.io",
+  "tags": ["security", "mcp-security", "skill-scanner", "supply-chain", "ai-agents", "benchmark"]
+}
